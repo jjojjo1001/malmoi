@@ -2889,7 +2889,7 @@ const koreanWords = [
   {
     id: "onsaemiro",
     word: "온새미로",
-    meaning: "가르거나 쪼개지 않고 생긴 그대로",
+    meaning: "가르거나 쪼개지 않고 생긴 그대로, 그대로 언제나 변함없이",
     kind: "compare",
     scene: "🍎 🍎",
     prompt: "통사과와 나눈 사과를 비교해요. 생긴 그대로인 것을 골라요.",
@@ -3843,7 +3843,7 @@ function themedAssetArt(id,size,label="") {
     yoonseul:[240,162,242,110,.32,"윤슬"],
     neulbom:[151,127,352,100,.27,"늘봄"],
     galmuri:[130,130,360,108,.27,"갈무리"],
-    onsaemiro:[236,234,362,96,-.24,"온새로미"],
+    onsaemiro:[236,234,362,96,-.24,"온새미로"],
     yeoubi:[226,229,300,90,-.163,"여우비"],
     gamasot:[241,224,311,91,-.258,"가마솥더위"]
   };
@@ -4484,7 +4484,7 @@ function modernShop(name,color='#538979',motif='') {
 const marketColors=['#347f9a','#b47954','#657cb0','#598451','#bd715c','#967854','#65979a'];
 const marketMotifs={yoonseul:'≈',sinabro:'🌱',onsaemiro:'∞',neulbom:'🌸',galmuri:'▤',yeoubi:'☂',gamasot:'☀'};
 const oldObjectArt=objectArt;
-objectArt=function(o){if(o.type==='market')return modernShop(o.id==='onsaemiro'?'온새로미':koreanWords.find(a=>a.id===o.id).word,marketColors[Object.keys(marketMotifs).indexOf(o.id)],marketMotifs[o.id]);return oldObjectArt(o);};
+objectArt=function(o){if(o.type==='market')return modernShop(o.id==='onsaemiro'?'온새미로':koreanWords.find(a=>a.id===o.id).word,marketColors[Object.keys(marketMotifs).indexOf(o.id)],marketMotifs[o.id]);return oldObjectArt(o);};
 const oldPixelArt=pixelArt;
 pixelArt=function(sheet,index,size,label,signText,inward){if(sheet==='environment'&&signText)return modernShop(signText,'#617d89','');return oldPixelArt(sheet,index,size,label,signText,inward);};
 const floors=[{x:560,y:40,w:890,h:285,c:'#e1d9e9'},{x:500,y:335,w:1000,h:525,c:'#efe2c7'},{x:90,y:660,w:500,h:670,c:'#e3d6c9'},{x:735,y:820,w:555,h:310,c:'#eee8d5'},{x:1440,y:650,w:490,h:655,c:'#d5e1e9'},{x:510,y:1170,w:925,h:910,c:'#dce6ca'}];
@@ -4576,7 +4576,7 @@ pixelArt=function(sheet,index,size,label,signText,inward){
  return previousPixelArt(sheet,index,size,label,signText,inward);
 };
 const previousObjectArt=objectArt;
-objectArt=function(o){if(o.type==='market')return illustrationSprite(shopIllustrations[o.id],o.artSize,o.id==='onsaemiro'?'온새로미':koreanWords.find(a=>a.id===o.id).word,o.mirror);if(o.type==='contest')return illustrationSprite(7,392,'');return previousObjectArt(o);};
+objectArt=function(o){if(o.type==='market')return illustrationSprite(shopIllustrations[o.id],o.artSize,o.id==='onsaemiro'?'온새미로':koreanWords.find(a=>a.id===o.id).word,o.mirror);if(o.type==='contest')return illustrationSprite(7,392,'');return previousObjectArt(o);};
 interactionDistance=function(o,x,y){
  if(o.type==='market'){const doorX=o.x+(o.mirror?48:-48);return Math.hypot(doorX-x,o.y-12-y);}
  if(o.type==='contest')return Math.hypot(Math.max(1489-x,0,x-1881),Math.max(842-y,0,y-1234));
@@ -4592,7 +4592,7 @@ const shopDescriptions={
  gamasot:'푹푹 찌는 가마솥더위를 피해 쉬어 가는 시원한 쉼터'
 };
 const previousMarketActivity=marketActivity;
-marketActivity=function(a){previousMarketActivity(a);const target=document.querySelector('#modal-content');const visual=document.createElement('figure');visual.className='shop-mission-visual';visual.innerHTML=illustrationSprite(shopIllustrations[a.id],210,a.id==='onsaemiro'?'온새로미':a.word,false)+'<figcaption>'+esc(shopDescriptions[a.id])+'</figcaption>';target.prepend(visual);};
+marketActivity=function(a){previousMarketActivity(a);const target=document.querySelector('#modal-content');const visual=document.createElement('figure');visual.className='shop-mission-visual';visual.innerHTML=illustrationSprite(shopIllustrations[a.id],210,a.id==='onsaemiro'?'온새미로':a.word,false)+'<figcaption>'+esc(shopDescriptions[a.id])+'</figcaption>';target.prepend(visual);};
 const previousInteract=interact;
 interact=function(o){previousInteract(o);if(o.type==='intro'){const content=document.querySelector('#modal-content');const detail=document.createElement('div');detail.className='village-story';detail.innerHTML='<h3>우리말을 지키는 말모이 탐험</h3><p>이 마을에서는 말을 발견하고, 바르게 고치고, 마음에 드는 말을 모아 나만의 말모이 사전을 만들어요.</p><p>🌳 <b>친구들의 공원</b> — 친구들이 쓰는 은어와 줄임말을 살피고 서로 이해하기 쉬운 말로 바꿔요.</p><p>📄 <b>전단지 골목</b> — 가게 간판의 띄어쓰기와 바닥에 떨어진 전단지의 맞춤법을 고쳐요.</p><p>🌷 <b>우리말 장터</b> — 7개의 가게에서 장면을 체험하고 아름다운 우리말의 뜻을 알아봐요. 좋아하는 말은 개수 제한 없이 사전에 담을 수 있어요.</p><p>✍️ <b>외래어 바꾸기 대회</b> — 백일장에서 물건·음식·일상 표현을 골라 뜻과 쓰임에 맞는 우리말 이름을 만들어요.</p><p>📖 <b>말모이 전시장</b> — 나의 사전을 살펴보고, 소개하고 싶은 말 3개를 골라 이유와 함께 자랑해요.</p>';content.prepend(detail);}};
 
@@ -4601,7 +4601,7 @@ const frontAssets={"front-market-v2":"./asset-b7f0723d1a75300b.png","front-exhib
 const frontShopFrames=[[7,0,424,410],[453,0,421,410],[896,0,423,410],[1344,0,423,410],[8,425,425,445],[450,425,421,445],[895,425,428,445],[1335,425,430,445]];
 const frontShopBoards=[[103,125,241,52],[545,126,242,50],[987,125,241,49],[1435,120,231,56],[91,529,258,52],[530,545,262,50],[977,551,262,52],[1425,535,243,55]];
 const frontIds=['yoonseul','sinabro','onsaemiro','neulbom','galmuri','yeoubi','gamasot','dalbodeure'];
-function frontShop(id,width=220,height=180){const i=frontIds.indexOf(id),box=frontShopFrames[i],[bx,by,bw,bh]=frontShopBoards[i];const word=id==='onsaemiro'?'온새로미':koreanWords.find(a=>a.id===id).word;
+function frontShop(id,width=220,height=180){const i=frontIds.indexOf(id),box=frontShopFrames[i],[bx,by,bw,bh]=frontShopBoards[i];const word=id==='onsaemiro'?'온새미로':koreanWords.find(a=>a.id===id).word;
  const clip='front-shop-clip-'+(++artClipCounter);
  return '<span class="pixel-art illustrated-sprite front-shop" style="width:'+width+'px;height:'+height+'px" role="img" aria-label="'+esc(word)+' 정면 가게"><svg viewBox="'+box.join(' ')+'" preserveAspectRatio="xMidYMax meet"><defs><clipPath id="'+clip+'"><rect x="'+box[0]+'" y="'+box[1]+'" width="'+box[2]+'" height="'+box[3]+'"/></clipPath></defs><image clip-path="url(#'+clip+')" href="'+frontAssets['front-market-v2']+'" width="1774" height="887"/><text x="'+(bx+bw/2)+'" y="'+(by+bh*.74)+'" text-anchor="middle" font-family="Noto Sans KR,Malgun Gothic,sans-serif" fill="#374b3d" font-weight="900" font-size="'+Math.min(45,(bw-12)/word.length)+'">'+esc(word)+'</text></svg></span>';
 }
@@ -4645,6 +4645,11 @@ for(const collection of [mapData.objects,zoneGuides,mapData.zones]){const o=coll
 Object.assign(mapData.objects.find(o=>o.type==='contest'),{y:1030,artY:1070});
 Object.assign(mapData.objects.find(o=>o.id==='slang_bamti'),{x:650,y:1655});
 const previousPolishDistance=interactionDistance;interactionDistance=function(o,x,y){if(o.type==='contest')return Math.hypot(Math.max(o.x-210-x,0,x-o.x-210),Math.max(o.artY-420-y,0,y-o.artY));return previousPolishDistance(o,x,y);};
+
+
+// Correct the built-in lesson in saved dictionaries, preserving each learner's sentences and reasons.
+const entriesBeforeOnsaemiroCorrection=storage.listDictionaryEntries.bind(storage);
+storage.listDictionaryEntries=function(id){return entriesBeforeOnsaemiroCorrection(id).map(e=>{if(e.sourceInteractionId!=='onsaemiro')return e;const corrected={...e};if(corrected.word==='온새로미')corrected.word='온새미로';if(corrected.meaning==='가르거나 쪼개지 않고 생긴 그대로')corrected.meaning='가르거나 쪼개지 않고 생긴 그대로, 그대로 언제나 변함없이';return corrected;});};
 
 welcome();
 </script>
